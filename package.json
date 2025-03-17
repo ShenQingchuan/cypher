@@ -1,0 +1,22 @@
+{
+  "name": "cypher",
+  "private": true,
+  "packageManager": "pnpm@10.6.3",
+  "description": "网络请求分析浏览器插件项目",
+  "author": "Cypher Team",
+  "scripts": {
+    "dev": "pnpm --parallel -r dev",
+    "dev:ext": "pnpm --filter cypher-extension dev",
+    "dev:web": "pnpm --filter web dev",
+    "build": "pnpm build:ext && pnpm build:ext:postprocess",
+    "build:ext": "pnpm --filter cypher-extension build",
+    "build:ext:postprocess": "node scripts/build-extension.mjs",
+    "build:web": "pnpm --filter web build",
+    "bump": "pnpm --filter cypher-extension bump"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.10.1",
+    "eslint": "^9.21.0",
+    "typescript": "^5.0.0"
+  }
+}
