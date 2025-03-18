@@ -3,6 +3,9 @@
 一开始这个浏览器扩展是为了筛选分析实际工作项目中大量的网络请求，统计埋点数据。
 解决的问题是：URL 相同的请求在 Chrome Network 面板下无法通过请求/响应的内容来筛选。
 
+<img alt="image" src="https://github.com/user-attachments/assets/66a78973-f130-45a2-969d-6378d3d3452d" />
+
+
 ## 项目结构
 
 这是一个使用 pnpm 管理的 Monorepo 项目，包含以下子项目：
