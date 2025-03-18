@@ -145,7 +145,6 @@ function handleRequestFinished(request: chrome.devtools.network.Request): void {
 
         // 创建完整的请求记录
         const record: NetworkRequest = {
-          requestId: timestampId, // 使用timestampId作为requestId
           timestampId,
           url,
           method,

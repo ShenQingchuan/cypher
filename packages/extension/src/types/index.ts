@@ -18,7 +18,6 @@ export type HttpBody = JSONValue | string | FormData | undefined
  * 网络请求实体
  */
 export interface NetworkRequest {
-  requestId: string // 与 timestampId 相同，保留此字段以兼容现有代码
   timestampId: string
   url: string
   method: string
