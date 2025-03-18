@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import process from 'node:process'
 
 /**
  * 日志级别枚举
@@ -20,11 +19,9 @@ let currentLogLevel = LogLevel.INFO
 
 // 在开发环境中，尝试从localStorage读取日志级别
 try {
-  if (process.env.NODE_ENV === 'development') {
-    const storedLevel = localStorage.getItem('cypher_logLevel')
-    if (storedLevel !== null) {
-      currentLogLevel = Number(storedLevel)
-    }
+  const storedLevel = localStorage.getItem('cypher_logLevel')
+  if (storedLevel !== null) {
+    currentLogLevel = Number(storedLevel)
   }
 }
 catch {
@@ -37,13 +34,11 @@ catch {
 export function setLogLevel(level: LogLevel): void {
   currentLogLevel = level
   // 仅在开发环境存储日志级别
-  if (process.env.NODE_ENV === 'development') {
-    try {
-      localStorage.setItem('cypher_logLevel', level.toString())
-    }
-    catch {
-      // 忽略localStorage错误
-    }
+  try {
+    localStorage.setItem('cypher_logLevel', level.toString())
+  }
+  catch {
+    // 忽略localStorage错误
   }
 }
 
