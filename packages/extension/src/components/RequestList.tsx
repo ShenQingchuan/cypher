@@ -132,7 +132,7 @@ export const RequestList: React.FC<RequestListProps> = ({
   const paddingTop = visibleRange.start * ITEM_HEIGHT
 
   return (
-    <div className={`${showDetailPanel ? 'h-1/2' : 'flex-1 h-auto'} overflow-hidden flex flex-col bg-white dark:bg-neutral-900`}>
+    <div className="flex-1 h-full overflow-hidden flex flex-col bg-white dark:bg-neutral-900">
       <div className="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-700 flex justify-between items-center">
         <h3 className="font-medium text-neutral-900 dark:text-neutral-100">请求列表</h3>
         <span className="text-xs text-neutral-500 dark:text-neutral-400">

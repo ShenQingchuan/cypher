@@ -34,4 +34,25 @@ export default defineConfig({
       },
     },
   },
+  rules: [
+    ['split-parent', { display: 'flex', overflow: 'hidden' }],
+    ['gutter', {
+      background: 'var(--un-bg-color)',
+      position: 'relative',
+      cursor: 'col-resize',
+    }],
+    ['gutter-vertical', {
+      height: '8px',
+      margin: '-4px 0',
+      cursor: 'row-resize',
+      width: '100%',
+      zIndex: '1',
+    }],
+    ['gutter-horizontal', {
+      width: '8px',
+      margin: '0 -4px',
+      height: '100%',
+      zIndex: '1',
+    }],
+  ],
 })

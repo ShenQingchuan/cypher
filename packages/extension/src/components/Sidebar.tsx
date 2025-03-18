@@ -17,6 +17,19 @@ const httpMethods = [
   'HEAD',
 ]
 
+const FilterInput: React.FC<{
+  onChange: (value: React.ChangeEvent<HTMLInputElement>) => void
+}> = ({ onChange }) => {
+  return (
+    <input
+      type="text"
+      placeholder="输入 URL 关键词"
+      className="w-full px-3 py-1.5 font-mono text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+      onChange={onChange}
+    />
+  )
+}
+
 export const SidebarFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearRequests }) => {
   return (
     <aside className="w-64 border-r border-neutral-200 dark:border-neutral-800 flex flex-col shrink-0 md:block hidden bg-white dark:bg-neutral-900 overflow-scroll">
@@ -38,10 +51,7 @@ export const SidebarFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearR
           <div className="space-y-1">
             <label className="block text-xs text-neutral-500 dark:text-neutral-400 font-medium">URL</label>
             <div className="relative">
-              <input
-                type="text"
-                placeholder="输入 URL 关键词"
-                className="w-full px-3 py-1.5 text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+              <FilterInput
                 onChange={e => onFilterChange({ searchText: e.target.value })}
               />
             </div>
@@ -64,10 +74,7 @@ export const SidebarFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearR
           {/* 搜索请求头 */}
           <div className="space-y-4">
             <label className="block text-xs text-neutral-500 dark:text-neutral-400 font-medium">请求头</label>
-            <input
-              type="text"
-              placeholder="搜索请求 Headers 内容"
-              className="w-full px-3 py-1.5 text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+            <FilterInput
               onChange={e => onFilterChange({ requestHeaderSearch: e.target.value })}
             />
           </div>
@@ -75,10 +82,7 @@ export const SidebarFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearR
           {/* 搜索请求体 */}
           <div className="space-y-1">
             <label className="block text-xs text-neutral-500 dark:text-neutral-400 font-medium">请求体</label>
-            <input
-              type="text"
-              placeholder="搜索请求 Body 内容"
-              className="w-full px-3 py-1.5 text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+            <FilterInput
               onChange={e => onFilterChange({ requestBodySearch: e.target.value })}
             />
           </div>
@@ -86,10 +90,7 @@ export const SidebarFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearR
           {/* 搜索响应头 */}
           <div className="space-y-1">
             <label className="block text-xs text-neutral-500 dark:text-neutral-400 font-medium">响应头</label>
-            <input
-              type="text"
-              placeholder="搜索响应 Headers 内容"
-              className="w-full px-3 py-1.5 text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+            <FilterInput
               onChange={e => onFilterChange({ responseHeaderSearch: e.target.value })}
             />
           </div>
@@ -97,10 +98,7 @@ export const SidebarFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearR
           {/* 搜索响应体 */}
           <div className="space-y-1">
             <label className="block text-xs text-neutral-500 dark:text-neutral-400 font-medium">响应体</label>
-            <input
-              type="text"
-              placeholder="搜索响应 Body 内容"
-              className="w-full px-3 py-1.5 text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+            <FilterInput
               onChange={e => onFilterChange({ responseBodySearch: e.target.value })}
             />
           </div>
@@ -145,10 +143,7 @@ export const MobileFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearRe
             <div className="space-y-2">
               <label className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">URL</label>
               <div className="relative">
-                <input
-                  type="text"
-                  placeholder="输入 URL 关键词"
-                  className="w-full px-3 py-1.5 text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+                <FilterInput
                   onChange={e => onFilterChange({ searchText: e.target.value })}
                 />
               </div>
@@ -171,10 +166,7 @@ export const MobileFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearRe
             {/* 搜索请求头 */}
             <div className="space-y-2">
               <label className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">请求头</label>
-              <input
-                type="text"
-                placeholder="搜索请求 Headers 内容"
-                className="w-full px-3 py-1.5 text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+              <FilterInput
                 onChange={e => onFilterChange({ requestHeaderSearch: e.target.value })}
               />
             </div>
@@ -182,10 +174,7 @@ export const MobileFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearRe
             {/* 搜索请求体 */}
             <div className="space-y-2">
               <label className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">请求体</label>
-              <input
-                type="text"
-                placeholder="搜索请求 Body 内容"
-                className="w-full px-3 py-1.5 text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+              <FilterInput
                 onChange={e => onFilterChange({ requestBodySearch: e.target.value })}
               />
             </div>
@@ -193,10 +182,7 @@ export const MobileFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearRe
             {/* 搜索响应头 */}
             <div className="space-y-2">
               <label className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">响应头</label>
-              <input
-                type="text"
-                placeholder="搜索响应 Headers 内容"
-                className="w-full px-3 py-1.5 text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+              <FilterInput
                 onChange={e => onFilterChange({ responseHeaderSearch: e.target.value })}
               />
             </div>
@@ -204,10 +190,7 @@ export const MobileFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearRe
             {/* 搜索响应体 */}
             <div className="space-y-2">
               <label className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">响应体</label>
-              <input
-                type="text"
-                placeholder="搜索响应 Body 内容"
-                className="w-full px-3 py-1.5 text-sm rounded-md border outline-hidden border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-neutral-400 dark:placeholder-neutral-500"
+              <FilterInput
                 onChange={e => onFilterChange({ responseBodySearch: e.target.value })}
               />
             </div>

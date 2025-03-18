@@ -18,7 +18,8 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-json-view-lite": "^2.4.0"
+    "react-json-view-lite": "^2.4.0",
+    "react-split": "^2.0.14"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.280",
