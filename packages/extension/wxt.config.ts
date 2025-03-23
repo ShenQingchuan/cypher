@@ -17,11 +17,7 @@ export default defineConfig({
     name: 'Cypher',
     description: '网络请求筛选分析工具',
     version: '1.0.0',
-    permissions: [
-      'webRequest',
-      'tabs',
-      'storage',
-    ],
+    permissions: [],
     host_permissions: [
       '<all_urls>',
     ],
