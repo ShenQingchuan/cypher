@@ -83,7 +83,6 @@ export const RequestList: React.FC<RequestListProps> = ({
   requests,
   selectedId,
   onSelectRequest,
-  showDetailPanel,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [visibleRange, setVisibleRange] = useState({ start: 0, end: 20 })

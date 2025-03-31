@@ -124,7 +124,8 @@ function handleRequestFinished(request: chrome.devtools.network.Request): void {
     const requestHeaders = convertHeadersToObject(requestHeadersArray)
 
     // 提取响应信息
-    const { status, statusText = '', headers: responseHeadersArray } = request.response
+    const { statusText = '', headers: responseHeadersArray } = request.response
+    const status = request.response.status || 200
     const responseHeaders = convertHeadersToObject(responseHeadersArray)
 
     // 计算持续时间（毫秒）

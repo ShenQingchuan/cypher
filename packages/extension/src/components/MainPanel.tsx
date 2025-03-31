@@ -124,54 +124,56 @@ export const MainPanel: React.FC = () => {
         {/* 移动端顶部栏 */}
         <MobileFilter onClearRequests={handleClearRequests} onFilterChange={handleFilterChange} />
 
-        {showDetailPanel && selectedRequest ? (
-          <Split
-            key={splitKey}
-            sizes={getCurrentSizes()}
-            minSize={100}
-            expandToMin={false}
-            gutterSize={8}
-            direction={direction}
-            onDragEnd={handleDragEnd}
-            className={`flex ${direction === 'horizontal' ? 'flex-row' : 'flex-col'} h-full overflow-hidden split-parent`}
-            gutter={(index: number, dir: string) => {
-              const gutter = document.createElement('div')
-              gutter.className = `gutter gutter-${dir} bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 transition-colors`
-              return gutter
-            }}
-          >
-            {/* 请求列表 */}
-            <div className="overflow-hidden flex flex-col">
-              <RequestList
-                requests={requests}
-                selectedId={selectedRequestId}
-                onSelectRequest={handleRequestSelect}
-                showDetailPanel={showDetailPanel}
-              />
-            </div>
+        {showDetailPanel && selectedRequest
+          ? (
+              <Split
+                key={splitKey}
+                sizes={getCurrentSizes()}
+                minSize={100}
+                expandToMin={false}
+                gutterSize={8}
+                direction={direction}
+                onDragEnd={handleDragEnd}
+                className={`flex ${direction === 'horizontal' ? 'flex-row' : 'flex-col'} h-full overflow-hidden split-parent`}
+                gutter={(index: number, dir: string) => {
+                  const gutter = document.createElement('div')
+                  gutter.className = `gutter gutter-${dir} bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 transition-colors`
+                  return gutter
+                }}
+              >
+                {/* 请求列表 */}
+                <div className="overflow-hidden flex flex-col">
+                  <RequestList
+                    requests={requests}
+                    selectedId={selectedRequestId}
+                    onSelectRequest={handleRequestSelect}
+                    showDetailPanel={showDetailPanel}
+                  />
+                </div>
 
-            {/* 请求详情 */}
-            <div className="overflow-hidden flex flex-col shadow">
-              <RequestDetailHeader
-                selectedRequest={selectedRequest}
-                showDetailPanel={showDetailPanel}
-                onCloseDetailPanel={handleCloseDetailPanel}
-              />
+                {/* 请求详情 */}
+                <div className="overflow-hidden flex flex-col shadow">
+                  <RequestDetailHeader
+                    selectedRequest={selectedRequest}
+                    showDetailPanel={showDetailPanel}
+                    onCloseDetailPanel={handleCloseDetailPanel}
+                  />
 
-              <RequestDetail request={selectedRequest} isDarkMode={isDarkMode} />
-            </div>
-          </Split>
-        ) : (
-          /* 当未显示详情面板时，只显示请求列表 */
-          <div className="flex-1 h-full overflow-hidden">
-            <RequestList
-              requests={requests}
-              selectedId={selectedRequestId}
-              onSelectRequest={handleRequestSelect}
-              showDetailPanel={showDetailPanel}
-            />
-          </div>
-        )}
+                  <RequestDetail request={selectedRequest} isDarkMode={isDarkMode} />
+                </div>
+              </Split>
+            )
+          : (
+            // 当未显示详情面板时，只显示请求列表
+              <div className="flex-1 h-full overflow-hidden">
+                <RequestList
+                  requests={requests}
+                  selectedId={selectedRequestId}
+                  onSelectRequest={handleRequestSelect}
+                  showDetailPanel={showDetailPanel}
+                />
+              </div>
+            )}
       </div>
     </div>
   )
