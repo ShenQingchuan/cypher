@@ -1,7 +1,7 @@
 {
   "name": "cypher-extension",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "网络请求筛选分析工具",
   "scripts": {

@@ -1,6 +1,9 @@
 import UnoCss from 'unocss/vite'
 import { defineConfig } from 'wxt'
 
+// @ts-expect-error - pass here
+import { version } from '../package.json'
+
 // See https://wxt.dev/api/config.html
 export default defineConfig({
   extensionApi: 'chrome',
@@ -16,7 +19,7 @@ export default defineConfig({
   manifest: {
     name: 'Cypher',
     description: '网络请求筛选分析工具',
-    version: '1.0.0',
+    version,
     permissions: [],
     host_permissions: [
       '<all_urls>',
