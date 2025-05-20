@@ -1,2 +1,9 @@
 packages:
-  - 'packages/*'
+  - packages/*
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
+  - dtrace-provider
+  - esbuild
+  - sharp
+  - spawn-sync
