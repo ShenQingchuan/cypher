@@ -1,4 +1,4 @@
-import { defineConfig, presetWebFonts, presetWind4 } from 'unocss'
+import { defineConfig, presetIcons, presetWebFonts, presetWind4 } from 'unocss'
 
 export default defineConfig({
   content: {
@@ -9,7 +9,10 @@ export default defineConfig({
     },
   },
   presets: [
-    presetWind4(),
+    presetIcons(),
+    presetWind4({
+      variablePrefix: 'un-',
+    }),
     presetWebFonts({
       fonts: {
         sans: 'Inter',

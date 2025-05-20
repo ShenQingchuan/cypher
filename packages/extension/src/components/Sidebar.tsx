@@ -37,8 +37,9 @@ export const SidebarFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearR
         <h2 className="text-lg font-mono font-semibold mb-4 text-neutral-900 dark:text-neutral-100">Cypher</h2>
         <button
           onClick={onClearRequests}
-          className="w-full py-2 cursor-pointer px-4 bg-slate-500 dark:bg-slate-600 hover:bg-slate-600 dark:hover:bg-slate-700 text-white rounded-md transition-colors text-sm"
+          className="flex items-center justify-center w-full py-2 cursor-pointer px-4 bg-slate-500 dark:bg-slate-600 hover:bg-slate-600 dark:hover:bg-slate-700 text-white rounded-md transition-colors text-sm"
         >
+          <div className="i-lucide-trash-2 inline-block text-base mr-1"></div>
           清空请求
         </button>
       </div>
@@ -120,14 +121,16 @@ export const MobileFilter: React.FC<SidebarProps> = ({ onFilterChange, onClearRe
         <div className="flex space-x-2">
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="py-1.5 px-3 cursor-pointer bg-primary-700 hover:bg-primary-900 text-white rounded-md transition-colors text-xs"
+            className="flex items-center py-1.5 px-3 cursor-pointer bg-primary-800/60 hover:bg-primary-900 text-white rounded-md transition-colors text-xs"
           >
+            <div className="i-lucide-filter inline-block text-base mr-1"></div>
             {showFilters ? '隐藏筛选' : '显示筛选'}
           </button>
           <button
             onClick={onClearRequests}
-            className="py-1.5 px-3 cursor-pointer bg-slate-500 dark:bg-slate-600 hover:bg-slate-600 dark:hover:bg-slate-700 text-white rounded-md transition-colors text-xs"
+            className="flex items-center py-1.5 px-3 cursor-pointer bg-slate-500 dark:bg-slate-600 hover:bg-slate-600 dark:hover:bg-slate-700 text-white rounded-md transition-colors text-xs"
           >
+            <div className="i-lucide-trash-2 inline-block text-base mr-1"></div>
             清空请求
           </button>
         </div>

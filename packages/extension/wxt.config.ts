@@ -6,7 +6,6 @@ import { version } from '../package.json'
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
-  extensionApi: 'chrome',
   modules: [
     '@wxt-dev/auto-icons',
     '@wxt-dev/module-react',
